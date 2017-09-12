@@ -19,7 +19,7 @@ public class UnityEngineView : MonoBehaviour
     [Inject]
     public void Init(CoreManager core)
     {
-        coreManager = core;        
+        coreManager = core;
     }
 
     // Use this for initialization

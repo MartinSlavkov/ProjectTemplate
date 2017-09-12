@@ -46,9 +46,8 @@ namespace Core
                 handlers[typeof(T)] = new List<EventHandler<IEvent>>();
             }
 
-            handlerList.Clear();
-            handlerList = handlers[typeof(T)];
-            handlerList.Add(evt => handler((T)evt));
+            var handlerListNew = handlers[typeof(T)];
+            handlerListNew.Add(evt => handler((T)evt));
         }
 
         public void Unregister<T>(EventHandler<T> handler) where T : IEvent

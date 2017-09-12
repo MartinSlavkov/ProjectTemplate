@@ -13,6 +13,5 @@ namespace Core
         {
             EventAgreggator = aggregator;
         }
-
     }
 }

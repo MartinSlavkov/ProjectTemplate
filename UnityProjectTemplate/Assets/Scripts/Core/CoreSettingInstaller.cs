@@ -7,16 +7,11 @@ namespace Core
     [CreateAssetMenu(fileName = "CoreSettingInstaller", menuName = "Installers/CoreSettingInstaller")]
     public class CoreSettingInstaller : ScriptableObjectInstaller<CoreSettingInstaller>
     {
-        public TestSettings Test;
-
-        [Serializable]
-        public class TestSettings
-        {
-            public int TestInt;
-        }
+        public GameObject UnityEngineViewPrefab;
 
         public override void InstallBindings()
         {
+            Container.Bind<UnityEngineView>().FromComponentInNewPrefab(UnityEngineViewPrefab).AsSingle().NonLazy();
         }
     }
 }
