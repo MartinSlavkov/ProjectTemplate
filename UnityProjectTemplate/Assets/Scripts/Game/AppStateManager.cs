@@ -14,11 +14,14 @@ namespace Game
         CoreManager core;
         StateMachine topLevelState;
 
+        public class OnMainManuPlayPressedEvent : IEvent { }
+
         public AppStateManager(CoreManager core)
         {
             this.core = core;
 
             core.EventAgreggator.Register<UnityEngineView.OnStartEvent>(OnStartHandler);
+            core.EventAgreggator.Register<OnMainManuPlayPressedEvent>(OnMainManuPlayPressedHandler);
 
             topLevelState = new StateMachine();
             topLevelState.MapState(StateWaitingForInit);
@@ -39,11 +42,18 @@ namespace Game
 
         private void StateLoadScenes()
         {
-            SceneManager.LoadScene("MenuScene", LoadSceneMode.Additive);
+            //test what is the current scene
+            if (!SceneManager.GetSceneByName("MenuScene").IsValid())
+            {
+                SceneManager.LoadScene("MenuScene", LoadSceneMode.Additive);
+            }
+            Debug.Log("Switched to Menu Scene");
         }
 
         private void StateInGame()
         {
+            SceneManager.UnloadSceneAsync("MenuScene");
+            SceneManager.LoadScene("GameScene", LoadSceneMode.Additive);
         }
 
         private void StateMainMenu()
@@ -60,6 +70,12 @@ namespace Game
         public void OnStartHandler(UnityEngineView.OnStartEvent evt)
         {
             topLevelState.SwitchToState(StateLoadScenes);
+        }
+
+        public void OnMainManuPlayPressedHandler(OnMainManuPlayPressedEvent evt)
+        {
+            topLevelState.SwitchToState(StateInGame);
+
         }
         #endregion
     }

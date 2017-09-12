@@ -9,6 +9,7 @@ namespace Core
         {
             Container.Bind<EventAggregator>().AsSingle().NonLazy();
             Container.Bind<CoreManager>().AsSingle().NonLazy();
+            Debug.Log("Core Installed");
         }
     }
 }

@@ -25,6 +25,7 @@ public class UnityEngineView : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Debug.Log("Unity Started");
         coreManager.EventAgreggator.Trigger(new OnStartEvent());
     }
 
