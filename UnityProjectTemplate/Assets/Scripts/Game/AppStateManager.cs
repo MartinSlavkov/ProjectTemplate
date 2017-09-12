@@ -53,7 +53,7 @@ namespace Game
         private void StateInGame()
         {
             SceneManager.UnloadSceneAsync("MenuScene");
-            SceneManager.LoadScene("GameScene", LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync("GameScene", LoadSceneMode.Additive);
         }
 
         private void StateMainMenu()
