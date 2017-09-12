@@ -30,6 +30,7 @@ namespace Core
         public EventAggregator()
         {
             handlers = new Dictionary<Type, IList<EventHandler<IEvent>>>();
+            handlerList = new List<EventHandler<IEvent>>();
         }
 
         /*public void Register(IRegisterable registerable)
@@ -59,6 +60,8 @@ namespace Core
             }
         }
 
+
+        //TODO - add possibility to trigger just with the type, for events without parameters, to not create instance of the event
         public void Trigger(IEvent evt)
         {
             handlerList.Clear();
