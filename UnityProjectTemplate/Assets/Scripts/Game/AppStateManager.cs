@@ -27,6 +27,7 @@ namespace Game
             topLevelState.MapState(StateWaitingForInit);
             topLevelState.MapState(StateLoadScenes);
             topLevelState.MapState(StateMainMenu);
+            topLevelState.MapState(StateLoadInGame);
             topLevelState.MapState(StateInGame);
         }
 
@@ -42,23 +43,30 @@ namespace Game
 
         private void StateLoadScenes()
         {
-            //test what is the current scene
-            if (!SceneManager.GetSceneByName("MenuScene").IsValid())
+            if (!SceneManager.GetSceneByName("CoreScene").IsValid())
             {
-                SceneManager.LoadScene("MenuScene", LoadSceneMode.Additive);
+                SceneManager.LoadScene("CoreScene", LoadSceneMode.Single);
             }
-            Debug.Log("Switched to Menu Scene");
+
+            SceneManager.LoadSceneAsync("MenuScene", LoadSceneMode.Additive);
+            Debug.Log("Main menu ready");
         }
 
         private void StateInGame()
         {
+        }
+
+        private void StateLoadInGame()
+        {
             SceneManager.UnloadSceneAsync("MenuScene");
             SceneManager.LoadSceneAsync("GameScene", LoadSceneMode.Additive);
+            topLevelState.SwitchToState(StateInGame);
         }
 
         private void StateMainMenu()
         {
         }
+
         #endregion
 
         public void UnregisterEvents()
@@ -74,9 +82,9 @@ namespace Game
 
         public void OnMainManuPlayPressedHandler(OnMainManuPlayPressedEvent evt)
         {
-            topLevelState.SwitchToState(StateInGame);
-
+            topLevelState.SwitchToState(StateLoadInGame);
         }
+
         #endregion
     }
 }

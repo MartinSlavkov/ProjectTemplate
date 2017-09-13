@@ -20,14 +20,13 @@ namespace Core.Utils
             public StateExit stateExit;
         }
 
-        // 1 byte = 256 max states, 0 = default (first state), so 255 states
         private int currentStateId;
         private State currentState;
 
         private Dictionary<StateEnter, int> stateToId;
         private Dictionary<int, State> idToState;
 
-        private byte nextStateId;
+        private int nextStateId;
 
         public StateMachine()
         {
