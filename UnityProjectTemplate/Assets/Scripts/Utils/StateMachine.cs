@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Core.Utils
 {
-    public class StateMachine
+    public class StateMachineSimple
     {
         public delegate void StateChanged(int stateId);
         public event StateChanged OnStateChanged;
@@ -14,7 +14,7 @@ namespace Core.Utils
 
         private struct State
         {
-            public int id;
+            public int id; //ID can be used to synchronize state machines on client and server.
             public StateEnter stateEnter;
             public StateUpdate stateUpdate;
             public StateExit stateExit;
@@ -28,7 +28,7 @@ namespace Core.Utils
 
         private int nextStateId;
 
-        public StateMachine()
+        public StateMachineSimple()
         {
             idToState = new Dictionary<int, State>();
             stateToId = new Dictionary<StateEnter, int>();
@@ -62,7 +62,7 @@ namespace Core.Utils
         {
             if (idToState.ContainsKey(id) == false)
             {
-                Debug.LogError("[StateMachine] Error: This state is not mapped, you must map all ability states in Init(), state id:" + id);
+                Debug.LogError("[StateMachine] Error: This state is not mapped, you must map all states, state id:" + id);
             }
 
             return idToState[id].stateEnter;
@@ -72,7 +72,7 @@ namespace Core.Utils
         {
             if (stateToId.ContainsKey(stateEnter) == false)
             {
-                Debug.LogError("[StateMachine] Error: This state is not mapped, you must map all ability states in Init(), state:" + stateEnter);
+                Debug.LogError("[StateMachine] Error: This state is not mapped, you must map all states, state:" + stateEnter);
             }
 
             return stateToId[stateEnter];
@@ -86,13 +86,11 @@ namespace Core.Utils
         {
             if (stateToId.ContainsKey(stateEnter) == false)
             {
-                Debug.LogError("[StateMachine] Error: This state is not mapped, you must map all ability states in Init()");
+                Debug.LogError("[StateMachine] Error: This state is not mapped, you must map all states");
             }
 
-            // leave old state if exists
             if (currentState.stateExit != null)
             {
-                // call state exit
                 currentState.stateExit();
             }
 
@@ -100,13 +98,11 @@ namespace Core.Utils
             currentStateId = stateToId[stateEnter];
             currentState = idToState[currentStateId];
 
-            // send event
             if (OnStateChanged != null)
             {
                 OnStateChanged.Invoke(currentStateId);
             }
 
-            // call state enter
             currentState.stateEnter();
 
             //Debug.LogWarning("[State Machine] Enter state: " + currentStateId + ", " + currentState);

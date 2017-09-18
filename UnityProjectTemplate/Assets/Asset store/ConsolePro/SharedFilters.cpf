@@ -1,0 +1,176 @@
+[
+    {
+        "filterName": "Framework",
+        "mainColor": {
+            "r": 0.0622837357223034,
+            "g": 0.529411792755127,
+            "b": 0.0655052810907364,
+            "a": 1.0
+        },
+        "isStandardFilter": false,
+        "useAdvancedColors": false,
+        "customTextColor": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+        },
+        "customBackgroundColor": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+        },
+        "searchList": [
+            {
+                "searchString": "^\\[[fF][wW]",
+                "searchType": "Regex",
+                "removeSearchStringFromLog": false,
+                "logTypeList": [
+                    {
+                        "logType": "Any",
+                        "name": null,
+                        "isEnabled": true,
+                        "collapsed": false,
+                        "itemGUID": "f51b0518-7ba8-4b35-b16e-a55b74ba879e"
+                    }
+                ],
+                "columnTypeList": [
+                    {
+                        "columnType": "Log",
+                        "name": null,
+                        "isEnabled": true,
+                        "collapsed": false,
+                        "itemGUID": "ecf94843-ea29-4277-9f17-aeb100c72512"
+                    }
+                ],
+                "name": null,
+                "isEnabled": true,
+                "collapsed": false,
+                "itemGUID": "a5249098-0820-467a-bd1b-9f794e55afe5"
+            }
+        ],
+        "showInToolbar": true,
+        "hideWhenNoMatches": true,
+        "name": "Framework",
+        "isEnabled": true,
+        "collapsed": true,
+        "itemGUID": "83620cb1-065f-44a2-9e21-d26f8b22bcea"
+    },
+    {
+        "filterName": "Network",
+        "mainColor": {
+            "r": 0.0,
+            "g": 0.0735292509198189,
+            "b": 1.0,
+            "a": 1.0
+        },
+        "isStandardFilter": false,
+        "useAdvancedColors": false,
+        "customTextColor": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+        },
+        "customBackgroundColor": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+        },
+        "searchList": [
+            {
+                "searchString": "^\\[[nN][eE][Tt]",
+                "searchType": "Regex",
+                "removeSearchStringFromLog": false,
+                "logTypeList": [
+                    {
+                        "logType": "Any",
+                        "name": null,
+                        "isEnabled": true,
+                        "collapsed": false,
+                        "itemGUID": "5698e78e-67a0-44c9-9c93-f74699712286"
+                    }
+                ],
+                "columnTypeList": [
+                    {
+                        "columnType": "Log",
+                        "name": null,
+                        "isEnabled": true,
+                        "collapsed": false,
+                        "itemGUID": "2d3782ab-fcd2-402f-8ab4-5ce2e9c6f3f9"
+                    }
+                ],
+                "name": null,
+                "isEnabled": true,
+                "collapsed": false,
+                "itemGUID": "f643f5d1-6add-4f4c-bcfb-329790325591"
+            }
+        ],
+        "showInToolbar": true,
+        "hideWhenNoMatches": true,
+        "name": "Network",
+        "isEnabled": true,
+        "collapsed": true,
+        "itemGUID": "e81c0f60-c529-405b-9003-b28725f5ad18"
+    },
+    {
+        "filterName": "FCI",
+        "mainColor": {
+            "r": 0.533628880977631,
+            "g": 0.693130254745483,
+            "b": 0.772058844566345,
+            "a": 1.0
+        },
+        "isStandardFilter": false,
+        "useAdvancedColors": false,
+        "customTextColor": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+        },
+        "customBackgroundColor": {
+            "r": 1.0,
+            "g": 1.0,
+            "b": 1.0,
+            "a": 1.0
+        },
+        "searchList": [
+            {
+                "searchString": "^\\[FCI]",
+                "searchType": "Regex",
+                "removeSearchStringFromLog": false,
+                "logTypeList": [
+                    {
+                        "logType": "Any",
+                        "name": null,
+                        "isEnabled": true,
+                        "collapsed": false,
+                        "itemGUID": "6d4e9451-dd85-4fba-a17d-163525986c80"
+                    }
+                ],
+                "columnTypeList": [
+                    {
+                        "columnType": "Any",
+                        "name": null,
+                        "isEnabled": true,
+                        "collapsed": false,
+                        "itemGUID": "48c4ee9e-2314-4a98-af5d-5dc1a6e8395e"
+                    }
+                ],
+                "name": null,
+                "isEnabled": true,
+                "collapsed": false,
+                "itemGUID": "6bb1c557-9dd9-42de-9c39-ce84a5d2af80"
+            }
+        ],
+        "showInToolbar": true,
+        "hideWhenNoMatches": false,
+        "name": "FCI",
+        "isEnabled": true,
+        "collapsed": false,
+        "itemGUID": "95cb1b42-85e2-4114-8138-443c0d6ada33"
+    }
+]

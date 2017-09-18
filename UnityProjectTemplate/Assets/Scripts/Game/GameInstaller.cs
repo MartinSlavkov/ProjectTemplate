@@ -1,12 +1,19 @@
-using Game;
 using UnityEngine;
 using Zenject;
 
-public class GameInstaller : MonoInstaller<GameInstaller>
+namespace Game
 {
-    public override void InstallBindings()
+    public class GameInstaller : MonoInstaller<GameInstaller>
     {
-        Container.Bind<AppStateManager>().AsSingle().NonLazy();
-        Container.Bind<ITickable>().To<AppStateManager>().AsSingle();
+        public override void InstallBindings()
+        {
+            DefinitionsData defData = new DefinitionsData();
+            DefinitionsLoader.LoadDefinitions(defData);
+
+            Container.Bind<DefinitionsData>().FromInstance(defData).AsSingle();
+
+            Container.Bind<GameStateManager>().AsSingle().NonLazy();
+            Container.Bind<UserData>().AsSingle().NonLazy();
+        }
     }
 }

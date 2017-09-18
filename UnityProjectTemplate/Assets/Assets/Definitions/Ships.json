@@ -1,0 +1,10 @@
+[
+ {
+   "Id": 1,
+   "HullPrefabName": "BasicHull"
+ },
+ {
+   "Id": 2,
+   "HullPrefabName": "BasicHull"
+ }
+]

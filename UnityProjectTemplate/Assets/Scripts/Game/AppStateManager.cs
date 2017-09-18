@@ -12,7 +12,7 @@ namespace Game
     public class AppStateManager : ITickable
     {
         CoreManager core;
-        StateMachine topLevelState;
+        StateMachineSimple appState;
 
         public class OnMainManuPlayPressedEvent : IEvent { }
 
@@ -23,20 +23,21 @@ namespace Game
             core.EventAgreggator.Register<UnityEngineView.OnStartEvent>(OnStartHandler);
             core.EventAgreggator.Register<OnMainManuPlayPressedEvent>(OnMainManuPlayPressedHandler);
 
-            topLevelState = new StateMachine();
-            topLevelState.MapState(StateWaitingForInit);
-            topLevelState.MapState(StateLoadScenes);
-            topLevelState.MapState(StateMainMenu);
-            topLevelState.MapState(StateLoadInGame);
-            topLevelState.MapState(StateInGame);
+            appState = new StateMachineSimple();
+            appState.MapState(StateWaitingForInit);
+            appState.MapState(StateLoadScenes);
+            appState.MapState(StateMainMenu);
+            appState.MapState(StateLoadInGame);
+            appState.MapState(StateInGame);
         }
 
         public void Tick()
         {
-            topLevelState.Update(Time.deltaTime);
+            appState.Update(Time.deltaTime);
         }
 
-        #region states
+        #region States
+
         private void StateWaitingForInit()
         {
         }
@@ -50,6 +51,7 @@ namespace Game
 
             SceneManager.LoadSceneAsync("MenuScene", LoadSceneMode.Additive);
             Debug.Log("Main menu ready");
+            //zavesit na onload a prepnut do mainmenu
         }
 
         private void StateInGame()
@@ -60,7 +62,8 @@ namespace Game
         {
             SceneManager.UnloadSceneAsync("MenuScene");
             SceneManager.LoadSceneAsync("GameScene", LoadSceneMode.Additive);
-            topLevelState.SwitchToState(StateInGame);
+            appState.SwitchToState(StateInGame);
+
         }
 
         private void StateMainMenu()
@@ -75,14 +78,15 @@ namespace Game
         }
 
         #region Event Handlers
+
         public void OnStartHandler(UnityEngineView.OnStartEvent evt)
         {
-            topLevelState.SwitchToState(StateLoadScenes);
+            appState.SwitchToState(StateLoadScenes);
         }
 
         public void OnMainManuPlayPressedHandler(OnMainManuPlayPressedEvent evt)
         {
-            topLevelState.SwitchToState(StateLoadInGame);
+            appState.SwitchToState(StateLoadInGame);
         }
 
         #endregion
