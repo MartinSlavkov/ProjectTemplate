@@ -1,10 +1,17 @@
 using UnityEngine;
 using Zenject;
 
-[CreateAssetMenu(fileName = "GameSettingsInstaller", menuName = "Installers/GameSettingsInstaller")]
-public class GameSettingsInstaller : ScriptableObjectInstaller<GameSettingsInstaller>
+namespace Game
 {
-    public override void InstallBindings()
+
+    [CreateAssetMenu(fileName = "GameSettingsInstaller", menuName = "Installers/GameSettingsInstaller")]
+    public class GameSettingsInstaller : ScriptableObjectInstaller<GameSettingsInstaller>
     {
+        public GameStateManager.Settings GameSettings;
+
+        public override void InstallBindings()
+        {
+            Container.BindInstance(GameSettings);
+        }
     }
 }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace Game
 {
@@ -10,22 +11,25 @@ namespace Game
     //player, asteroids, rockets
     //asteroids and rockets in pool
     //asteroids generated randomly + by controller?
-    class GameStateManager
+    public class GameStateManager
     {
         private StateMachineSimple gameState;
         private UserData userData;
         private DefinitionsData definitions;
+        private Settings settings;
 
-        public GameStateManager(UserData userData, DefinitionsData definitions)
+        public GameStateManager(UserData userData, DefinitionsData definitions, Settings settings)
         {
             this.userData = userData;
             this.definitions = definitions;
+            this.settings = settings;
 
             gameState.MapState(StateInitialize);
         }
 
         private void StateInitialize()
         {
+            
             // need - player prefab / player ship prefab - with view?
             //       - prefab from settings scriptable thing
             // need - ship hull prefab
@@ -36,11 +40,11 @@ namespace Game
             //      - add weapon prefab
         }
 
-        //game state manager
 
-        /*public Player;
-            dopisat naco je cv state masine id
-premenovat ju na state machine simple abo tak
-vyhodit ability z logu*/
+        [Serializable]
+        public class Settings
+        {
+            public GameObject PlayerPrefab;
+        }
     }
 }

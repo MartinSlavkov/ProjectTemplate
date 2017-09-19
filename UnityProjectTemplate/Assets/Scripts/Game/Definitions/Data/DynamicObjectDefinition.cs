@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Game
 {
-    class DynamicObjectDefinition
+    public class DynamicObjectDefinition
     {
     }
 }

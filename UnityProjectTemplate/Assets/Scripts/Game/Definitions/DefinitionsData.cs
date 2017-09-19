@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Game
 {
-    class DefinitionsData
+    public class DefinitionsData
     {
         public DynamicObjectDefinition[] DynamicObjectDefinitions;
         public ShipDefinition[] ShipDefinitions;

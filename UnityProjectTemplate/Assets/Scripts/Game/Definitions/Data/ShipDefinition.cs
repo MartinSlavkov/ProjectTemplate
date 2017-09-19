@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Game
 {
-    class ShipDefinition
+    public class ShipDefinition
     {
         public int Id;
         public string HullPrefabName;
