@@ -13,6 +13,7 @@ namespace Game
             Container.Bind<DefinitionsData>().FromInstance(defData).AsSingle();
 
             Container.Bind<GameStateManager>().AsSingle().NonLazy();
+            //load the user data from somewhere
             Container.Bind<UserData>().AsSingle().NonLazy();
         }
     }

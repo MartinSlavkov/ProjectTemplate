@@ -7,10 +7,6 @@ using UnityEngine;
 
 namespace Game
 {
-    //model
-    //player, asteroids, rockets
-    //asteroids and rockets in pool
-    //asteroids generated randomly + by controller?
     public class GameStateManager
     {
         private StateMachineSimple gameState;
@@ -24,12 +20,18 @@ namespace Game
             this.definitions = definitions;
             this.settings = settings;
 
+            gameState = new StateMachineSimple();
             gameState.MapState(StateInitialize);
+
+            gameState.SwitchToState(StateInitialize);
         }
 
         private void StateInitialize()
         {
+            //GameObject.Instantiate(settings.PlayerPrefab, Vector3.zero, Quaternion.identity);
             
+
+
             // need - player prefab / player ship prefab - with view?
             //       - prefab from settings scriptable thing
             // need - ship hull prefab
@@ -44,7 +46,7 @@ namespace Game
         [Serializable]
         public class Settings
         {
-            public GameObject PlayerPrefab;
+            //public GameObject PlayerPrefab;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Game
     {
         public static void LoadDefinitions(DefinitionsData definitionData)
         {
-            TextAsset blockText = Resources.Load<TextAsset>("Ships");
+            TextAsset blockText = Resources.Load<TextAsset>("Definitions/Ships");
             definitionData.ShipDefinitions = JsonReader.Deserialize<ShipDefinition[]>(blockText.text);
         }
     }
