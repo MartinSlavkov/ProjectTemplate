@@ -1,10 +1,10 @@
 # ProjectTemplate
 
-Ukazkovy projekt pre urcenie zakladne architektury projektu v unity
+Ukazkovy projekt pre urcenie zakladnej architektury projektu v unity
 Ciel:
 Vytovrit ukazku zakladnej architektury, ulohou nie je konkretna hra ale architektura projektu na jej tvorbu navrhnuta tak,
-aby sa na nej dal spravit aj jednoduchy prototyp aj velky projekt. Vsetky jej casti treba dalej rozvijat. Spolocne casti je 
-vhodne oddelit tak, aby sa dali zdielat medzi projektami.
+aby sa na nej dal spravit aj jednoduchy prototyp aj velky projekt. Vsetky jej casti treba dalej rozvijat.
+Spolocne casti je vhodne oddelit tak, aby sa dali zdielat medzi projektami.
 
 Hlavne body:
 
