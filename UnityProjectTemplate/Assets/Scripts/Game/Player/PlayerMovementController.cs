@@ -22,7 +22,6 @@ namespace Game
         {
             Vector2 diff = inputState.TargetPosition - playerShip.Position;
             playerShip.SetVelocity(diff * 10.0f);
-            //playerShip.Position = inputState.TargetPosition;
         }
     }
 }

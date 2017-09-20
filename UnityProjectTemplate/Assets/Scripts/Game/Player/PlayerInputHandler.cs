@@ -20,8 +20,6 @@ namespace Game
 
         public void Tick()
         {
-            //Vector3 mousePosWorld = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-
             Ray mouseRay = mainCamera.ScreenPointToRay(Input.mousePosition);
             Vector3 mousePosWorld = mouseRay.origin;
             mousePosWorld.z = 0;

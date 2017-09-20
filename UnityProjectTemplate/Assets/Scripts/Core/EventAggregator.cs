@@ -46,7 +46,8 @@ namespace Core
         //TODO - add possibility to trigger just with the type, for events without parameters, to not create instance of the event
         public void Trigger(IEvent evt)
         {
-            IList<EventHandler<IEvent>> handlerList = new List<EventHandler<IEvent>>(); //handlerList.Clear();
+            IList<EventHandler<IEvent>> handlerList;
+
             if (handlers.TryGetValue(evt.GetType(), out handlerList))
             {
                 foreach (EventHandler<IEvent> handler in handlerList)

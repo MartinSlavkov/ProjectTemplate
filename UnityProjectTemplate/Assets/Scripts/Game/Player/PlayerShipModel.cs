@@ -45,5 +45,10 @@ namespace Game
         {
             rigidBody.velocity = velocity;
         }
+
+        public void DoDamage(float damage)
+        {
+            Health -= damage;
+        }
     }
 }

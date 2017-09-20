@@ -12,17 +12,12 @@ namespace Game
 
         public override void InstallBindings()
         {
-
             Container.Bind<PlayerShipModel>().AsSingle()
                 .WithArguments(settings.Rigidbody).NonLazy();
 
             Container.BindInterfacesTo<PlayerInputHandler>().AsSingle();
             Container.BindInterfacesTo<PlayerMovementController>().AsSingle();
-            //Container.BindInterfacesTo<PlayerShootHandler>().AsSingle();
-
             Container.Bind<PlayerInputState>().AsSingle();
-
-            //Container.BindInterfacesTo<PlayerHealthWatcher>().AsSingle();*/
         }
 
         [Serializable]

@@ -7,9 +7,17 @@ namespace Game
 {
     public class PlayerShipBehaviour : MonoBehaviour, IDamagable
     {
+        public PlayerShipModel playerShip;
+
+        public PlayerShipBehaviour(PlayerShipModel playerShip)
+        {
+            this.playerShip = playerShip;
+        }
+
         public void DoDamage(float damage, GameObject damageSource)
         {
-            //call event to the model :-p
+            //if(damageSource.teamId && ??damage type??
+            playerShip.DoDamage(damage);
         }
     }
 }

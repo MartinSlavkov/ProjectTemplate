@@ -25,4 +25,7 @@ Co dalej:
 - pridat lokalizacny tool
 - pridat google doc loader s lepsim rozhranim ako bol
 - pridat asteroidy a strelbu na ukazku napojenia - da sa najst v projektoch zenjectu
+- rozsirit event agregator o:
+        //TODO: pridat register once
+        //TODO: register with priority
 
