@@ -1,0 +1,7 @@
+﻿Definitions - pozri v adresari
+Player - pozri v adresari
+UI - triedy na UI, pouzite ako view, posiela event do controllera, ale sam nevie do akeho
+UserData - data o uzivatelovi, nacitane z zdroja podla hry, ci uz load/save, cloud, master server, popripade kombinacia
+App triedy - obsluhuju celu hru a su zive od zaciatku do konca
+Game triedy - obslhuju inGame - konkretny substav s tym ze cez AppStateMachine a GameStateMachine nam vznika viacurovnove FSM,
+  vhodne na obsluhu celej hry

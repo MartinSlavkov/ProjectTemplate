@@ -1,4 +1,23 @@
-﻿
+﻿!! Depenency injection!!
+ - Dolezite!!
+ - bezne sa pouziva v unity tzv, service locator pattern. Cize niekde si vytvorim instanciu, zaregistrujem ju do lokatora.
+   Na inom mieste, kde danu instanciu potrebujem, si ju zoberiem z lokatora. Problem je ze je tazke zarucit poradie tvorby objektov, 
+   name v prostredi ako je unity, popripade ked sa prida multithreading, pomaly loading a sietova komunikacia s roznymi sluzbami.
+   Lahko sa potom stane ze objekt potrebuje na svoju inicializaciu referenciu z ServiceLocatora, ten ju vsak este nema.
+   Injectovanie zavyslosti preto robime zhora, od hlavnych objektov smerom dole. Potrebujeme teda vztupny bod, 
+   kde dany objekt vytvorime a zinicializujeme. Tu prichadza Zenject, ktory nam ich pohodlne poskitne v unity.
+
+   JE ZAKAZANE POUZIVAT ZENJECT AKO SERVICE LOCATOR!!
+
+   Zakladne vstupne body su installery. Installer nastavy zavyslosti svojich objektov v danom contexte a potom ich 
+   vytvory v spravnom poradi.
+   pozname zakladne contexty:
+   - Project context - plati pre cely projekt, jeho installery zbehnu pri starte aplikacie, bez ohladu na scenu
+   - Scene context - plati pre danu scenu, jeho installery znehnu pri naloadovani sceny
+   - Game Object context - plati pre konkretny gameobject, installery zbehnu pri konstrukcii objektu
+
+   Pre objekty kliknute ako prefab do hry pouzivame zenjectbinding na nastavenie bindovania
+   Pre dynamicky tvorene objekty z kodu, pouzivame factory - pozri manual na Zenject
 
 Pool
  - pixel.ObjectPool
@@ -20,10 +39,9 @@ Tvorba objektov
 
 
 Co dalej:
-- dokumentacia flowu a co kde ma byt a preco
 - vyriesit pooling
 - pridat lokalizacny tool
-- pridat google doc loader s lepsim rozhranim ako bol
+- pridat google doc loader s lepsim rozhranim ako bol - ako tool do unity, nerobit s nim load priamo do hry
 - pridat asteroidy a strelbu na ukazku napojenia - da sa najst v projektoch zenjectu
 - rozsirit event agregator o:
         //TODO: pridat register once
