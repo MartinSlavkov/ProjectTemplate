@@ -1,4 +1,5 @@
 ﻿using Core;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +27,7 @@ public class UnityEngineView : MonoBehaviour
     void Start()
     {
         Debug.Log("Unity Started");
-        coreManager.EventAgreggator.Trigger(new OnStartEvent());
+        coreManager.EventAgreggator.Trigger(typeof(OnStartEvent));
     }
 
     // Update is called once per frame

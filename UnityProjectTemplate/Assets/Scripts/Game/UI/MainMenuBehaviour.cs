@@ -26,6 +26,6 @@ public class MainMenuBehaviour : MonoBehaviour
 
     public void OnPlayButton()
     {
-        coreManager.EventAgreggator.Trigger(new AppStateManager.OnMainManuPlayPressedEvent());
+        coreManager.EventAgreggator.Trigger(typeof(AppStateManager.OnMainManuPlayPressedEvent));
     }
 }

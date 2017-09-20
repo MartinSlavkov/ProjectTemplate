@@ -14,13 +14,13 @@ namespace Core
 
     public class EventAggregator
     {
-        IDictionary<Type, IList<EventHandler<IEvent>>> handlers;
-        IList<EventHandler<IEvent>> handlerList;
+        private IDictionary<Type, IList<EventHandler<IEvent>>> handlers;
+        private IDictionary<Type, IEvent> eventInstancePool;
 
         public EventAggregator()
         {
             handlers = new Dictionary<Type, IList<EventHandler<IEvent>>>();
-            handlerList = new List<EventHandler<IEvent>>();
+            eventInstancePool = new Dictionary<Type, IEvent>();
         }
 
         public void Register<T>(EventHandler<T> handler) where T : IEvent
@@ -36,7 +36,8 @@ namespace Core
 
         public void Unregister<T>(EventHandler<T> handler) where T : IEvent
         {
-            handlerList.Clear();
+            IList<EventHandler<IEvent>> handlerList;
+            
             if (handlers.TryGetValue(typeof(T), out handlerList))
             {
                 handlerList.Remove(handler as EventHandler<IEvent>);
@@ -44,6 +45,27 @@ namespace Core
         }
 
         //TODO - add possibility to trigger just with the type, for events without parameters, to not create instance of the event
+
+        private IEvent GetEventInstance(Type eventType)
+        {
+            IEvent eventInstance;
+            if (!eventInstancePool.TryGetValue(eventType, out eventInstance))
+            {
+                eventInstance = Activator.CreateInstance(eventType) as IEvent;
+                if (eventInstance != null)
+                {
+                    eventInstancePool.Add(eventType, eventInstance);
+                }
+            }
+
+            return eventInstance;
+        }
+
+        public void Trigger(Type eventType)
+        {
+            Trigger(GetEventInstance(eventType));
+        }
+
         public void Trigger(IEvent evt)
         {
             IList<EventHandler<IEvent>> handlerList;
