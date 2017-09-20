@@ -1,0 +1,28 @@
+﻿
+
+Pool
+ - pixel.ObjectPool
+   - managera zmenit tak aby nebol staticky ale cez instanciu, tu napijit do core installera a nabindovat.
+   - ak je jedna isntancia, tak mam cez pooler vzdy pristup na vsetky pooly, ak chcem dva pooly jedneho typu objektu, 
+   musim ich pomenovat / identifikovat, co je nevyhoda
+ - zenject pool
+   - metoda zavolana pri ruse objektu je handy
+   - pool sa definuje tam kde ho treba, je pristupny iba tym co sa na neho napoja. Ak chcem dve instancie poolu toho isteho typu, 
+   vytvorim ich v inom contexte. Ak ich chcem bindovat z jedneho contextu tak smola, neda sa
+   - pool netreba vzdy bindovat, mozem nabibdovat manazera, on uz vie kde pooluje, takze mozem mat napr. ronze pooly na bullety 
+   triedene niecoho
+
+Tvorba objektov
+ - ako sucast sceny - zenject bind + installer ak treba
+ - instancovanie z prefabu - jedna instancia - rucne v kode a nabindovat - bind from isntance, alebo binfrom prefab?
+ - pre castejsie menene objekty - factory + pooler (napr. zenject factory ;-) ])
+   - napr. rozne zbrane na lodi, powerupy generovane do levelu, ine naboje po upgradnuti zbrane
+
+
+Co dalej:
+- dokumentacia flowu a co kde ma byt a preco
+- vyriesit pooling
+- pridat lokalizacny tool
+- pridat google doc loader s lepsim rozhranim ako bol
+- pridat asteroidy a strelbu na ukazku napojenia - da sa najst v projektoch zenjectu
+

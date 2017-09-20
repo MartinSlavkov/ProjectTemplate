@@ -28,7 +28,7 @@ namespace Game
             appState.MapState(StateLoadScenes);
             appState.MapState(StateMainMenu);
             appState.MapState(StateLoadInGame);
-            appState.MapState(StateInGame);
+            appState.MapState(StateInGame, StateInGameUpdate);
         }
 
         public void Tick()
@@ -56,6 +56,16 @@ namespace Game
 
         private void StateInGame()
         {
+        }
+
+        private void StateInGameUpdate(float deltaTime)
+        {
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                SceneManager.UnloadSceneAsync("GameScene");
+                SceneManager.LoadSceneAsync("MenuScene", LoadSceneMode.Additive);
+                appState.SwitchToState(StateMainMenu);
+            }
         }
 
         private void StateLoadInGame()

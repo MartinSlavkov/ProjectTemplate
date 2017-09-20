@@ -28,25 +28,14 @@ namespace Game
 
         private void StateInitialize()
         {
-            //GameObject.Instantiate(settings.PlayerPrefab, Vector3.zero, Quaternion.identity);
-            
 
-
-            // need - player prefab / player ship prefab - with view?
-            //       - prefab from settings scriptable thing
-            // need - ship hull prefab
-            //       - from definitions
-            //  - create ship for player
-            //      - use player ship prefab - visual / data - factory / builder?
-            //      - add hull prefab
-            //      - add weapon prefab
         }
 
 
         [Serializable]
         public class Settings
         {
-            //public GameObject PlayerPrefab;
+
         }
     }
 }
