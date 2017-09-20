@@ -1,0 +1,19 @@
+﻿Core
+	Predstavuje jadro projektov. Spolocne triedy ktore sa pouzivaju medzi projektami. Mali by byt nalinkovane externe tak,
+	aby sa dali updatovat medzi projektami
+
+CoreManager - trieda, ktoru si injectujem tam kde potrebujem pristup na core classy
+
+MVC
+	Predpoklada sa pouzivanie MVC tam, kde je uzitocne. Aby neboli zbytocne zlozite, tak nepouziva ziadny specialny template.
+	Castym problemom MVC je komunikacia medzi modulmi. Po zvazovani roznych rieseni som vybral model EventAggregatora a aj 
+	implementaciu ktoru tu najdete. Ked sa niekto zaregistruje na prijatie eventu, tak nevie, kto event bude posielat.
+	Zaroven je event typovy a system registracie listenerov umoznuje dobry performance
+
+	U Event aggregatora by som este pridal moznost poolovania eventov, aby sa minimalizovalo volanie new, hlavne
+	pre eventy bez parametrov
+
+UnityEngineView je trieda, ktora je urcena na vysielanie eventov z unity do event agregatora, aby aj triedy, ktorenie su napojene
+	do unity (non mono behaviour triedy) mohli na tieto eventy reagovat
+
+CoreSettings - moze obsahovat nastavenia pre jadro, napr. Ip adresu, meno a heslo pre rozne sluzby

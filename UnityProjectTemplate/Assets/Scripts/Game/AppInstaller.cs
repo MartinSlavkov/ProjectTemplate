@@ -2,7 +2,7 @@ using Game;
 using UnityEngine;
 using Zenject;
 
-public class AsteroidBlasterInstaller : MonoInstaller<AsteroidBlasterInstaller>
+public class AppInstaller : MonoInstaller<AppInstaller>
 {
     public override void InstallBindings()
     {

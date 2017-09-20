@@ -1,0 +1,17 @@
+﻿Definicie - staticke data, zadavane game designerom - vacsinou nejaka mega sada tabuliek
+- pocas hry sa nemenia
+- moze byt viac verzii (dynamicky update, AB test)
+- momentalne nacitavane napevno z json suborou
+- oplati sa editovat ich cez google docs a exportovat do json
+- na export je spraveny tool od M.Senovskeho - ktory nacita data z googledocs rovno do hry, popripade ich rovno ulozi ako json
+  - tu by som spravil upravu, ze dany tool bude cisto editor tool, kde sa vymenuju tabulky a ich sheety, ktore sa exportuju
+  a nasledne si gamedesigner bude vediet importnut aktualne data z gdocs do hry. Priame nacitanie dat z gdocs do hry
+  neodporucam, pretoze su tu rozne rizika. Napriklad ze mi ich niekto prave zeditoval, alebo ze som na dev branch , ale v doc.
+  su data pre produkciu a pod. Export dat do konkretnej branch by mal mat pod rukou gamedesigner za ne zodpovedny.
+  - tool by mal mat zoznam tabuliek ulozeny aj s heslom na gdocs. Dany zoznam by mal byt ulozeny na plasticu/gite/svn...
+
+DefinitionsData - zoznam definici v hre, bindnuty do zenjectu. Ak potrebujem definicie, ziskam si odkaz cez injekciu v zenjecte
+ - adresar Data - jednotlive value objecty pre rozne systemi
+
+Definitions Loader - zastresuje nacitavanie definici z aktualneho zdroja, tu je pouzity json loader. S tym ze jsnon subory sa 
+ rucne edituju iba malokedy, exportuju sa z datoveho toolu.

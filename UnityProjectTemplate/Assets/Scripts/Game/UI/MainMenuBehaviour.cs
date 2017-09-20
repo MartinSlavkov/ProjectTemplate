@@ -16,12 +16,8 @@ public class MainMenuBehaviour : MonoBehaviour
     public void Init(CoreManager core)
     {
         coreManager = core;
-
-        //zvolit default meno
-        //inject aj na construcotr pre ios
     }
 
-    // Use this for initialization
     void Start()
     {
         PlayButton.onClick.RemoveAllListeners();

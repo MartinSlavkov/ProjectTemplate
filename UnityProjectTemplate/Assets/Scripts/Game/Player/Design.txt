@@ -1,0 +1,11 @@
+﻿PlayerShipModel - obsahuje data o lodi
+
+PlayerInputHandler, PlayerInputState - oddelenie inputu od ovladania a modelu
+PlayerMovementController - controller na pohyb hraca
+
+PlayerShipInstaller - vytvara instancie tried, ktore nei su z behaviour a prepaja ich cez zenject
+
+- lod by normalne bola tvorena podla parametrov - aky hull, ake zbrane farba a pod. V tomto pripade by bola tvorena
+cez factory, ktora by dostala UserData a DefinitionsData a podla nich vytvorila lod, a cez factory na zbrane aj zbrane..
+
+pre lepsi priklad napojenia, bindingu, poolovania a pouzitia factory, pozrite ukazkove projekty zenjectu(not included hre)
