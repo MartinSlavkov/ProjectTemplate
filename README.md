@@ -1,6 +1,8 @@
 # ProjectTemplate
 
 Ukazkovy projekt pre urcenie zakladnej architektury projektu v unity
+
+!! citajte design.txt v jednotlivich scripts adresaroch!
 Ciel:
 Vytovrit ukazku zakladnej architektury, ulohou nie je konkretna hra ale architektura projektu na jej tvorbu navrhnuta tak,
 aby sa na nej dal spravit aj jednoduchy prototyp aj velky projekt. Vsetky jej casti treba dalej rozvijat.
