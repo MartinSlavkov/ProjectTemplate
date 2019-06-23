@@ -22,6 +22,7 @@ UnityProjectTemplate/.consulo/
 *.booproj
 *.svd
 *.pdb
+*/.localhistory
 
 # Unity3D generated meta files
 *.pidb.meta
